@@ -2,12 +2,7 @@ export const INITIAL_STATE = {
   loading: false,
   error: false,
   city: '',
-  main: '',
-  weather: '',
-  date: '',
-  windspeed: '',
-  time: '',
-  visibility: '',
+  data: {},
 }
 
 export const formReducer = (state, action) => {
@@ -26,24 +21,14 @@ export const formReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        main: action.payload.main,
-        weather: action.payload.weather,
-        date: action.payload.dt,
-        windspeed: action.payload.wind,
-        time: action.payload.sys,
-        visibility: action.payload.visibility,
+        data: action.payload,
       }
     case 'FETCH_ERROR':
       return {
         loading: true,
         error: true,
         city: '',
-        main: '',
-        weather: '',
-        date: '',
-        windspeed: '',
-        time: '',
-        visibility: '',
+        data: {},
       }
 
     default:
