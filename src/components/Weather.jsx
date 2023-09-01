@@ -7,14 +7,15 @@ import Wind from "../assets/wind.png"
 import Pressure from "../assets/pressure.png"
 import { formatDate, sunTime } from '../utils/formateTime'
 
-const Weather = ({ weatherData, historyData, historySearch }) => {
-    // console.log(weatherData)
+const Weather = ({ weatherData}) => {
+console.log(weatherData)
     return (
         <div className='weather-details'>
             {
                 weatherData.length !== 0
                     ?
                     <>
+                        
                         <div className="curr_temp">
                             <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="current-weather" className='weather-icon' />
                             <h1 className='time'>{weatherData.main.temp}&deg;C</h1>
@@ -50,7 +51,7 @@ const Weather = ({ weatherData, historyData, historySearch }) => {
                         </div>
                     </>
                     : (
-                        <h2>loading</h2>
+                        <small>Enter the name of city</small>
                     )}
             {/*  
            
